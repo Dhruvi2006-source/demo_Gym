@@ -1,0 +1,64 @@
+# =========================
+# Root Level
+# =========================
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Environment Variables (Sensitive)
+# =========================
+client/.env
+client/.env.*
+server/.env
+server/.env.*
+
+# Never commit secrets
+*.env
+
+# =========================
+# Node Modules (Both Apps)
+# =========================
+client/node_modules/
+server/node_modules/
+
+# =========================
+# Build / Production Files
+# =========================
+client/dist/
+client/build/
+
+server/dist/
+server/build/
+server/node_modules
+# =========================
+# Vite
+# =========================
+client/.vite/
+
+# =========================
+# Temporary / Cache
+# =========================
+.cache/
+tmp/
+temp/
+
+# =========================
+# IDE / Editor Files
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS Generated
+# =========================
+.DS_Store
+Thumbs.db

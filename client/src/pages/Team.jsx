@@ -1,0 +1,57 @@
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
+
+const team = [
+  { name: 'Michael Smith', role: 'Head Coach & CrossFit Specialist', emoji: '🏋️', exp: '12 years', spec: 'CrossFit, Strength & Conditioning', bio: 'Michael is a NSCA-certified strength coach who has trained professional athletes and fitness beginners alike. His high-energy sessions push every member to their peak.' },
+  { name: 'Sara Johnson', role: 'Yoga & Wellness Coach', emoji: '🧘', exp: '8 years', spec: 'Yoga, Mindfulness, Flexibility', bio: 'Sara is a certified 200-hour RYT yoga instructor specializing in both Hatha and Vinyasa styles. Her calming yet challenging sessions have helped hundreds achieve balance.' },
+  { name: 'John Carter', role: 'CrossFit & HIIT Trainer', emoji: '⚡', exp: '6 years', spec: 'CrossFit, HIIT, Olympic Lifting', bio: "John brings explosive energy to every class. His CrossFit L2 certification and competitive HIIT background make his sessions both thrilling and results-driven." },
+  { name: 'Lisa Brown', role: 'Nutritionist & Fitness Coach', emoji: '🥗', exp: '9 years', spec: 'Sports Nutrition, Fat Loss, Body Recomposition', bio: 'Lisa combines her registered dietitian credentials with personal training expertise to help you achieve results that last through diet, sleep, and movement.' },
+  { name: 'Jason Mamoa', role: 'Personal Trainer & Bodybuilder', emoji: '💪', exp: '10 years', spec: 'Hypertrophy, Powerlifting, Body Sculpting', bio: 'A former competitive bodybuilder, Jason designs progressive overload programs that maximize muscle growth. He specializes in body sculpting and advanced strength programming.' },
+  { name: 'Irina Bella', role: 'Zumba & Aerobics Instructor', emoji: '💃', exp: '7 years', spec: 'Zumba, Aerobics, Dance Fitness', bio: "Irina is a licensed Zumba instructor with infectious energy. Her classes are packed because she makes fitness feel like the best party you've ever been to." },
+]
+
+export default function Team() {
+  return (
+    <div>
+      <section className="pt-40 pb-20 bg-page-hero relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(212,255,0,0.07)_0%,transparent_70%)] pointer-events-none" />
+        <div className="container relative">
+          <span className="section-eyebrow">Our Experts</span>
+          <h1 className="font-display font-black uppercase leading-none mb-4 text-5xl md:text-7xl">
+            Meet the Coaches<br />Behind Your <span className="text-accent">Transformation</span>
+          </h1>
+          <p className="text-muted text-lg max-w-xl leading-relaxed">
+            Our certified trainers bring a combined 50+ years of expertise to guide your fitness journey with passion and precision.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-24 bg-bg">
+        <div className="container grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {team.map(t => (
+            <div key={t.name} className="card flex flex-col gap-4">
+              <div className="w-20 h-20 rounded-full bg-bg-3 border border-white/[0.08] flex items-center justify-center text-4xl">{t.emoji}</div>
+              <div>
+                <h3 className="font-black text-lg mb-1">{t.name}</h3>
+                <p className="text-xs font-semibold text-accent">{t.role}</p>
+              </div>
+              <p className="text-muted text-sm leading-relaxed flex-1">{t.bio}</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="tag">{t.exp}</span>
+                <span className="tag">{t.spec.split(',')[0].trim()}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-20 bg-bg-2 text-center">
+        <div className="container">
+          <h2 className="section-title">Passionate About <span className="text-accent">Fitness?</span></h2>
+          <p className="section-subtitle mx-auto mb-9">We're always looking for certified fitness professionals to join our growing team.</p>
+          <Link to="/contact" className="btn-primary">Join Our Team <ArrowRight size={16} /></Link>
+        </div>
+      </section>
+    </div>
+  )
+}
