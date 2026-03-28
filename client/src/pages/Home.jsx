@@ -31,7 +31,7 @@ const stats = [
 const testimonials = [
   { name: 'Akshay Soni', rating: 5, text: 'Best gym I have ever been to! The trainers are highly professional and supportive. Truly life-changing experience.' },
   { name: 'Darshna Patel', rating: 5, text: 'Love the Zumba and yoga classes here. The energy is incredible and the facilities are top-notch.' },
-  { name: 'Shreya Patel', rating: 5, text: 'Optimum Fitness helped me lose 20kg in 8 months. The personal trainers are amazing and very motivating.' },
+  { name: 'Shreya Patel', rating: 5, text: 'Apex Fitness helped me lose 20kg in 8 months. The personal trainers are amazing and very motivating.' },
 ]
 
 const guides = [

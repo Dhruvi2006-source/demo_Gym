@@ -30,10 +30,10 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2.5 font-display text-xl font-bold uppercase mb-5">
               <Dumbbell size={26} strokeWidth={2.5} className="text-accent" style={{ filter: 'drop-shadow(0 0 8px rgba(0,240,255,0.4))' }} />
-              <span>Optimum<strong className="text-accent">Fitness</strong></span>
+              <span>Apex<strong className="text-accent">Fitness</strong></span>
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-sm mb-7">
-              Transform your body, elevate your mind. Join thousands who've unlocked their peak potential at Optimum Fitness.
+              Transform your body, elevate your mind. Join thousands who've unlocked their peak potential at Apex Fitness.
             </p>
             <div className="flex gap-3">
               {[
@@ -71,8 +71,8 @@ export default function Footer() {
             <ul className="flex flex-col gap-4 mb-6">
               {[
                 { Icon: MapPin, lines: ['Anand & Nadiad, Gujarat, India'] },
-                { Icon: Phone, lines: ['+91 98765 43210'] },
-                { Icon: Mail, lines: ['info@optimumfitness.co.in'] },
+                { Icon: Phone, lines: ['+91 98989 89898'] },
+                { Icon: Mail, lines: ['info@apexfitness.co.in'] },
               ].map(({ Icon, lines }) => (
                 <li key={lines[0]} className="flex items-start gap-3">
                   <Icon size={14} className="text-accent mt-0.5 flex-shrink-0" />
@@ -91,7 +91,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="divider" />
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3 py-6 text-xs text-dim">
-          <p>&copy; {year} Optimum Fitness. All rights reserved.</p>
+          <p>&copy; {year} Apex Fitness. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
