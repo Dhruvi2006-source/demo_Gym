@@ -4,6 +4,7 @@ import {
   ChevronRight, ArrowRight, Zap, Users, Target, Clock,
   Star, Play, CheckCircle, TrendingUp
 } from 'lucide-react'
+import ScrollReveal from '../components/ScrollReveal'
 
 /* ── DATA ───────────────────────────────────────────── */
 const programs = [
@@ -186,54 +187,64 @@ export default function Home() {
         <div className="container relative z-10 grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-120px)] pt-28 pb-16">
           {/* Left */}
           <div>
-            <div
-              className="inline-flex items-center break-words gap-2.5 px-5 py-2.5 rounded-full border text-xs font-semibold tracking-widest uppercase mb-8 justify-start flex-wrap"
-              style={{
-                background: "rgba(0,240,255,0.06)",
-                borderColor: "rgba(0,240,255,0.15)",
-                color: "#00f0ff",
-              }}
-            >
-              <Zap className='text-12'/> India's Top Fitness Center
-            </div>
-            <h1
-              className="font-display uppercase leading-[0.9] mb-7 break-words"
-              style={{
-                fontSize: "clamp(28px, 6vw + 1rem, 110px)",
-                letterSpacing: "0.04em",
-              }}
-            >
-              Strong.
-              <br />
-              <span className="text-gradient">Fit.</span>
-              <br />
-              Unstoppable.
-            </h1>
-            <p className="text-muted text-lg leading-relaxed max-w-full mb-10">
-              Transform your body and mindset at Optimum Fitness - Anand &
-              Nadiad's premier gym with expert coaches, modern equipment, and
-              proven programs.
-            </p>
-            <div className="flex flex-wrap-reverse gap-4 mb-9">
-              <Link to="/contact" className="btn-primary text-base px-10 py-4">
-                Start Free Trial <ArrowRight size={18} />
-              </Link>
-              <Link to="/programs" className="btn-outline">
-                <Play size={15} fill="currentColor" /> See Programs
-              </Link>
-            </div>
-            <div className="flex items-center gap-2.5 text-muted text-sm">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  size={14}
-                  fill="#00f0ff"
-                  color="#00f0ff"
-                  style={{ filter: "drop-shadow(0 0 4px rgba(0,240,255,0.4))" }}
-                />
-              ))}
-              <span>4.9/5 from 500+ reviews</span>
-            </div>
+            <ScrollReveal>
+              <div
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border text-xs font-semibold tracking-widest uppercase mb-8"
+                style={{
+                  background: "rgba(0,240,255,0.06)",
+                  borderColor: "rgba(0,240,255,0.15)",
+                  color: "#00f0ff",
+                }}
+              >
+                <Zap size={13} /> India's Top Fitness Center
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h1
+                className="font-display uppercase leading-[0.9] mb-7 break-words"
+                style={{
+                  fontSize: "clamp(48px, 8vw, 110px)",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                Strong.
+                <br />
+                <span className="text-gradient">Fit.</span>
+                <br />
+                Unstoppable.
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p className="text-muted text-lg leading-relaxed max-w-full mb-10">
+                Transform your body and mindset at Apex Fitness - Anand &
+                Nadiad's premier gym with expert coaches, modern equipment, and
+                proven programs.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <div className="flex flex-wrap gap-4 mb-9">
+                <Link to="/contact" className="btn-primary text-base px-10 py-4">
+                  Start Free Trial <ArrowRight size={18} />
+                </Link>
+                <Link to="/programs" className="btn-outline">
+                  <Play size={15} fill="currentColor" /> See Programs
+                </Link>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.4}>
+              <div className="flex items-center gap-2.5 text-muted text-sm">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    size={14}
+                    fill="#00f0ff"
+                    color="#00f0ff"
+                    style={{ filter: "drop-shadow(0 0 4px rgba(0,240,255,0.4))" }}
+                  />
+                ))}
+                <span>4.9/5 from 500+ reviews</span>
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Right visual */}
@@ -303,33 +314,37 @@ export default function Home() {
         </div>
 
         {/* Stats bar */}
-        <div
-          className="relative z-10 py-10 border-t border-white/[0.06]"
-          style={{
-            background: "rgba(10,14,24,0.8)",
-            backdropFilter: "blur(16px)",
-          }}
-        >
-          <div className="container grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <span
-                  className="font-display text-4xl block leading-none mb-1.5"
-                  style={{
-                    background: "linear-gradient(135deg, #00f0ff, #7c3aff)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  {s.num}
-                </span>
-                <span className="text-muted text-xs uppercase tracking-widest">
-                  {s.label}
-                </span>
-              </div>
-            ))}
+        <ScrollReveal y={0} duration={1}>
+          <div
+            className="relative z-10 py-10 border-t border-white/[0.06]"
+            style={{
+              background: "rgba(10,14,24,0.8)",
+              backdropFilter: "blur(16px)",
+            }}
+          >
+            <div className="container grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {stats.map((s, i) => (
+                <div key={s.label}>
+                  <ScrollReveal delay={0.1 * i} y={10}>
+                    <span
+                      className="font-display text-4xl block leading-none mb-1.5"
+                      style={{
+                        background: "linear-gradient(135deg, #00f0ff, #7c3aff)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      {s.num}
+                    </span>
+                    <span className="text-muted text-xs uppercase tracking-widest">
+                      {s.label}
+                    </span>
+                  </ScrollReveal>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* ── PROGRAMS ── */}
@@ -388,33 +403,39 @@ export default function Home() {
         }}
       >
         <div className="container">
-          <BMICalculator />
+          <ScrollReveal>
+            <BMICalculator />
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ── SERVICES ── */}
       <section className="py-24 bg-bg">
         <div className="container">
-          <div className="flex items-end justify-between mb-14 gap-4 flex-wrap">
-            <div>
-              <span className="section-eyebrow">Our Services</span>
-              <h2 className="section-title">
-                Unlock Your Fitness Potential
-                <br />
-                with Our <span className="text-accent">Services</span>
-              </h2>
-            </div>
-            <Link to="/services" className="btn-outline">
-              View All <ArrowRight size={16} />
-            </Link>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {services.map((s) => (
-              <div key={s.title} className="card text-center py-10 px-6">
-                <div className="text-5xl mb-5">{s.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
+          <ScrollReveal>
+            <div className="flex items-end justify-between mb-14 gap-4 flex-wrap">
+              <div>
+                <span className="section-eyebrow">Our Services</span>
+                <h2 className="section-title">
+                  Unlock Your Fitness Potential
+                  <br />
+                  with Our <span className="text-accent">Services</span>
+                </h2>
               </div>
+              <Link to="/services" className="btn-outline">
+                View All <ArrowRight size={16} />
+              </Link>
+            </div>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {services.map((s, i) => (
+              <ScrollReveal key={s.title} delay={i * 0.1}>
+                <div className="card text-center py-10 px-6 h-full">
+                  <div className="text-5xl mb-5">{s.icon}</div>
+                  <h3 className="text-xl font-bold mb-3">{s.title}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -428,71 +449,81 @@ export default function Home() {
         }}
       >
         <div className="container">
-          <span className="section-eyebrow">Our Experts</span>
-          <h2 className="section-title">
-            Meet the Experts Behind
-            <br />
-            Your <span className="text-accent">Fitness</span>
-          </h2>
-          <p className="section-subtitle mb-14">
-            Our certified coaches bring passion, expertise and personalised
-            motivation to every session.
-          </p>
+          <ScrollReveal>
+            <span className="section-eyebrow">Our Experts</span>
+            <h2 className="section-title">
+              Meet the Experts Behind
+              <br />
+              Your <span className="text-accent">Fitness</span>
+            </h2>
+            <p className="section-subtitle mb-14">
+              Our certified coaches bring passion, expertise and personalised
+              motivation to every session at Apex Fitness.
+            </p>
+          </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { name: "Michael Smith", role: "Head Coach", emoji: "🏋️" },
               { name: "Sara Johnson", role: "Yoga Specialist", emoji: "🧘" },
               { name: "John Carter", role: "CrossFit Expert", emoji: "⚡" },
               { name: "Lisa Brown", role: "Nutritionist", emoji: "🥗" },
-            ].map((t) => (
-              <div key={t.name} className="card text-center py-10 px-5">
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-4xl mx-auto mb-5"
-                  style={{
-                    background: "rgba(17,24,39,0.8)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  {t.emoji}
+            ].map((t, i) => (
+              <ScrollReveal key={t.name} delay={i * 0.1}>
+                <div className="card text-center py-10 px-5 h-full">
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center text-4xl mx-auto mb-5"
+                    style={{
+                      background: "rgba(17,24,39,0.8)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    {t.emoji}
+                  </div>
+                  <h4 className="font-bold text-base mb-2">{t.name}</h4>
+                  <span className="tag">{t.role}</span>
                 </div>
-                <h4 className="font-bold text-base mb-2">{t.name}</h4>
-                <span className="tag">{t.role}</span>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link to="/team" className="btn-outline">
-              Meet Full Team <ArrowRight size={16} />
-            </Link>
-          </div>
+          <ScrollReveal delay={0.2}>
+            <div className="text-center mt-12">
+              <Link to="/team" className="btn-outline">
+                Meet Full Team <ArrowRight size={16} />
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* ── FREE GUIDES ── */}
       <section className="py-24 bg-bg">
         <div className="container">
-          <span className="section-eyebrow">Free Resources</span>
-          <h2 className="section-title mb-14">
-            Your Free <span className="text-accent">Fitness</span> Level Guides
-          </h2>
+          <ScrollReveal>
+            <span className="section-eyebrow">Free Resources</span>
+            <h2 className="section-title mb-14">
+              Your Free <span className="text-accent">Fitness</span> Level Guides
+            </h2>
+          </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {guides.map((g, i) => (
-              <div key={i} className="flex items-center gap-4 card px-6 py-5">
-                <div
-                  className="w-3 h-3 rounded-full flex-shrink-0"
-                  style={{
-                    background: g.color,
-                    boxShadow: `0 0 10px ${g.color}50`,
-                  }}
-                />
-                <div>
-                  <span className="block text-sm font-bold">{g.type}</span>
-                  <span className="text-xs text-muted">{g.level}</span>
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className="flex items-center gap-4 card px-6 py-5 h-full">
+                  <div
+                    className="w-3 h-3 rounded-full flex-shrink-0"
+                    style={{
+                      background: g.color,
+                      boxShadow: `0 0 10px ${g.color}50`,
+                    }}
+                  />
+                  <div>
+                    <span className="block text-sm font-bold">{g.type}</span>
+                    <span className="text-xs text-muted">{g.level}</span>
+                  </div>
+                  <button className="ml-auto flex items-center gap-2 text-xs font-bold text-accent hover:gap-3 transition-all duration-300">
+                    Download <ArrowRight size={13} />
+                  </button>
                 </div>
-                <button className="ml-auto flex items-center gap-2 text-xs font-bold text-accent hover:gap-3 transition-all duration-300">
-                  Download <ArrowRight size={13} />
-                </button>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -506,42 +537,46 @@ export default function Home() {
         }}
       >
         <div className="container">
-          <span className="section-eyebrow">Reviews</span>
-          <h2 className="section-title mb-14">
-            What Our <span className="text-accent">Members</span> Say
-          </h2>
+          <ScrollReveal>
+            <span className="section-eyebrow">Reviews</span>
+            <h2 className="section-title mb-14">
+              What Our <span className="text-accent">Members</span> Say
+            </h2>
+          </ScrollReveal>
           <div className="grid md:grid-cols-3 gap-5">
-            {testimonials.map((t) => (
-              <div key={t.name} className="card flex flex-col gap-5">
-                <div className="flex gap-1">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      fill="#00f0ff"
-                      color="#00f0ff"
-                      style={{
-                        filter: "drop-shadow(0 0 3px rgba(0,240,255,0.3))",
-                      }}
-                    />
-                  ))}
-                </div>
-                <p className="text-muted text-sm leading-relaxed flex-1 italic">
-                  "{t.text}"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-full font-bold text-base flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(135deg, #00f0ff, #7c3aff)",
-                      color: "#06080d",
-                    }}
-                  >
-                    {t.name[0]}
+            {testimonials.map((t, i) => (
+              <ScrollReveal key={t.name} delay={i * 0.1}>
+                <div className="card flex flex-col gap-5 h-full">
+                  <div className="flex gap-1">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={14}
+                        fill="#00f0ff"
+                        color="#00f0ff"
+                        style={{
+                          filter: "drop-shadow(0 0 3px rgba(0,240,255,0.3))",
+                        }}
+                      />
+                    ))}
                   </div>
-                  <strong className="text-sm">{t.name}</strong>
+                  <p className="text-muted text-sm leading-relaxed flex-1 italic">
+                    "{t.text}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 rounded-full font-bold text-base flex items-center justify-center"
+                      style={{
+                        background: "linear-gradient(135deg, #00f0ff, #7c3aff)",
+                        color: "#06080d",
+                      }}
+                    >
+                      {t.name[0]}
+                    </div>
+                    <strong className="text-sm">{t.name}</strong>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -550,18 +585,20 @@ export default function Home() {
       {/* ── BLOG TEASER ── */}
       <section className="py-24 bg-bg">
         <div className="container">
-          <div className="flex items-end justify-between mb-14 gap-4 flex-wrap">
-            <div>
-              <span className="section-eyebrow">Fitness Blogs & News</span>
-              <h2 className="section-title">
-                Your Guide to{" "}
-                <span className="text-accent">Fitness Success!</span>
-              </h2>
+          <ScrollReveal>
+            <div className="flex items-end justify-between mb-14 gap-4 flex-wrap">
+              <div>
+                <span className="section-eyebrow">Fitness Blogs & News</span>
+                <h2 className="section-title">
+                  Your Guide to{" "}
+                  <span className="text-accent">Fitness Success!</span>
+                </h2>
+              </div>
+              <Link to="/blog" className="btn-outline">
+                All Posts <ArrowRight size={16} />
+              </Link>
             </div>
-            <Link to="/blog" className="btn-outline">
-              All Posts <ArrowRight size={16} />
-            </Link>
-          </div>
+          </ScrollReveal>
           <div className="grid md:grid-cols-2 gap-5">
             {[
               {
@@ -577,26 +614,28 @@ export default function Home() {
                 tag: "Training",
                 time: "4 min read",
               },
-            ].map((b) => (
-              <div key={b.title} className="card flex flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <span className="tag">{b.tag}</span>
-                  <span className="flex items-center gap-1.5 text-xs text-dim">
-                    <Clock size={11} />
-                    {b.time}
-                  </span>
+            ].map((b, i) => (
+              <ScrollReveal key={b.title} delay={i * 0.1}>
+                <div className="card flex flex-col gap-4 h-full">
+                  <div className="flex items-center justify-between">
+                    <span className="tag">{b.tag}</span>
+                    <span className="flex items-center gap-1.5 text-xs text-dim">
+                      <Clock size={11} />
+                      {b.time}
+                    </span>
+                  </div>
+                  <h3 className="font-bold text-lg leading-snug">{b.title}</h3>
+                  <p className="text-muted text-sm leading-relaxed flex-1">
+                    {b.desc}
+                  </p>
+                  <Link
+                    to="/blog"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-accent hover:gap-3 transition-all duration-300"
+                  >
+                    Read More <ArrowRight size={13} />
+                  </Link>
                 </div>
-                <h3 className="font-bold text-lg leading-snug">{b.title}</h3>
-                <p className="text-muted text-sm leading-relaxed flex-1">
-                  {b.desc}
-                </p>
-                <Link
-                  to="/blog"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-accent hover:gap-3 transition-all duration-300"
-                >
-                  Read More <ArrowRight size={13} />
-                </Link>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -610,50 +649,52 @@ export default function Home() {
         }}
       >
         <div className="container">
-          <div
-            className="relative flex flex-col lg:flex-row items-center justify-between gap-12 rounded-3xl px-10 py-16 overflow-hidden"
-            style={{
-              background: "rgba(17,24,39,0.5)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(0,240,255,0.12)",
-              boxShadow:
-                "0 0 60px rgba(0,240,255,0.06), 0 24px 48px rgba(0,0,0,0.4)",
-            }}
-          >
+          <ScrollReveal>
             <div
-              className="absolute -left-24 top-1/2 -translate-y-1/2 w-80 h-80 pointer-events-none"
+              className="relative flex flex-col lg:flex-row items-center justify-between gap-12 rounded-3xl px-10 py-16 overflow-hidden"
               style={{
-                background:
-                  "radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 70%)",
+                background: "rgba(17,24,39,0.5)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(0,240,255,0.12)",
+                boxShadow:
+                  "0 0 60px rgba(0,240,255,0.06), 0 24px 48px rgba(0,0,0,0.4)",
               }}
-            />
-            <div
-              className="absolute -right-24 top-0 w-64 h-64 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(124,58,255,0.06) 0%, transparent 70%)",
-              }}
-            />
-            <div className="relative z-10">
-              <h2 className="section-title">
-                Transform Your Body.
-                <br />
-                <span className="text-accent">Start Today.</span>
-              </h2>
-              <p className="section-subtitle">
-                Join thousands who've transformed their lives. Your first class
-                is on us.
-              </p>
+            >
+              <div
+                className="absolute -left-24 top-1/2 -translate-y-1/2 w-80 h-80 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(0,240,255,0.08) 0%, transparent 70%)",
+                }}
+              />
+              <div
+                className="absolute -right-24 top-0 w-64 h-64 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(124,58,255,0.06) 0%, transparent 70%)",
+                }}
+              />
+              <div className="relative z-10">
+                <h2 className="section-title">
+                  Transform Your Body.
+                  <br />
+                  <span className="text-accent">Start Today.</span>
+                </h2>
+                <p className="section-subtitle">
+                  Join thousands who've transformed their lives at Apex Fitness.
+                  Your first class is on us.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4 flex-shrink-0 relative z-10">
+                <Link to="/contact" className="btn-primary text-base px-10 py-4">
+                  Get Free Trial <ArrowRight size={18} />
+                </Link>
+                <Link to="/programs" className="btn-outline justify-center">
+                  Explore Programs
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-col gap-4 flex-shrink-0 relative z-10">
-              <Link to="/contact" className="btn-primary text-base px-10 py-4">
-                Get Free Trial <ArrowRight size={18} />
-              </Link>
-              <Link to="/programs" className="btn-outline justify-center">
-                Explore Programs
-              </Link>
-            </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

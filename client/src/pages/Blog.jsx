@@ -1,4 +1,5 @@
 import { Clock } from 'lucide-react'
+import ScrollReveal from '../components/ScrollReveal'
 
 const posts = [
   {
@@ -43,36 +44,40 @@ export default function Blog() {
         <div className="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none"
           style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 70%)' }} />
         <div className="container relative">
-          <span className="section-eyebrow">Fitness Blog</span>
-          <h1 className="font-display uppercase leading-[0.95] mb-5 text-5xl md:text-7xl">
-            Insights for Your<br /><span className="text-accent">Fitness Journey</span>
-          </h1>
-          <p className="text-muted text-lg max-w-xl leading-relaxed">
-            Expert tips, training guides, and nutrition advice from our certified coaches.
-          </p>
+          <ScrollReveal>
+            <span className="section-eyebrow">Fitness Blog</span>
+            <h1 className="font-display uppercase leading-[0.95] mb-5 text-5xl md:text-7xl">
+              Insights for Your<br /><span className="text-accent">Fitness Journey</span>
+            </h1>
+            <p className="text-muted text-lg max-w-xl leading-relaxed">
+              Expert tips, training guides, and nutrition advice from our certified coaches at Apex Fitness.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="py-24 bg-bg">
         <div className="container flex flex-col gap-8">
-          {posts.map(p => (
-            <article key={p.title} className="card flex flex-col gap-5">
-              <div className="flex items-center gap-4">
-                <span className="text-5xl leading-none">{p.emoji}</span>
-                <div className="flex items-center gap-3">
-                  <span className="tag">{p.tag}</span>
-                  <span className="flex items-center gap-1.5 text-xs text-dim"><Clock size={11} />{p.time}</span>
+          {posts.map((p, i) => (
+            <ScrollReveal key={p.title} delay={i * 0.1}>
+              <article className="card flex flex-col gap-5 h-full">
+                <div className="flex items-center gap-4">
+                  <span className="text-5xl leading-none">{p.emoji}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="tag uppercase tracking-widest">{p.tag}</span>
+                    <span className="flex items-center gap-1.5 text-xs text-dim"><Clock size={11} />{p.time}</span>
+                  </div>
                 </div>
-              </div>
-              <h2 className="text-2xl font-extrabold leading-snug">{p.title}</h2>
-              <p className="text-muted leading-relaxed">{p.excerpt}</p>
-              <ul className="flex flex-col gap-3 p-6 rounded-xl"
-                style={{ background: 'rgba(17,24,39,0.6)', borderLeft: '4px solid #00f0ff' }}>
-                {p.content.map((c, i) => (
-                  <li key={i} className="text-sm text-muted leading-relaxed">{c}</li>
-                ))}
-              </ul>
-            </article>
+                <h2 className="text-2xl font-bold leading-snug">{p.title}</h2>
+                <p className="text-muted leading-relaxed">{p.excerpt}</p>
+                <ul className="flex flex-col gap-3 p-6 rounded-xl"
+                  style={{ background: 'rgba(17,24,39,0.6)', borderLeft: '4px solid #00f0ff' }}>
+                  {p.content.map((c, i) => (
+                    <li key={i} className="text-sm text-muted leading-relaxed">{c}</li>
+                  ))}
+                </ul>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -80,12 +85,14 @@ export default function Blog() {
       {/* Newsletter */}
       <section className="py-20 text-center" style={{ background: 'linear-gradient(180deg, #0a0e18 0%, #06080d 100%)' }}>
         <div className="container">
-          <h2 className="section-title">Stay <span className="text-accent">Informed</span></h2>
-          <p className="section-subtitle mx-auto mb-10">Get weekly fitness tips, workout guides, and nutrition advice delivered to your inbox.</p>
-          <div className="flex gap-3 max-w-md mx-auto">
-            <input type="email" placeholder="your@email.com" className="flex-1 rounded-full border-white/[0.08]" />
-            <button className="btn-primary">Subscribe</button>
-          </div>
+          <ScrollReveal>
+            <h2 className="section-title">Stay <span className="text-accent">Informed</span></h2>
+            <p className="section-subtitle mx-auto mb-10">Get weekly fitness tips, workout guides, and nutrition advice delivered to your inbox from Apex Fitness.</p>
+            <div className="flex gap-3 max-w-md mx-auto">
+              <input type="email" placeholder="your@email.com" className="flex-1 rounded-full border-white/[0.08]" />
+              <button className="btn-primary">Subscribe</button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

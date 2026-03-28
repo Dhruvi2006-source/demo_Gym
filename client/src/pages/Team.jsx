@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import ScrollReveal from "../components/ScrollReveal";
 
 const team = [
   {
@@ -64,44 +65,48 @@ export default function Team() {
           }}
         />
         <div className="container relative">
-          <span className="section-eyebrow">Our Experts</span>
-          <h1 className="font-display uppercase leading-[0.95] mb-7 text-[clamp(32px,5vw+1rem,90px)] pr-10">
-            Meet the Coaches
-            <br />
-            Behind Your <span className="text-accent">Transformation</span>
-          </h1>
-          <p className="text-muted text-lg max-w-xl leading-relaxed">
-            Our certified trainers bring a combined 50+ years of expertise to
-            guide your fitness journey with passion and precision.
-          </p>
+          <ScrollReveal>
+            <span className="section-eyebrow">Our Experts</span>
+            <h1 className="font-display uppercase leading-[0.95] mb-7 text-[clamp(40px,5vw+1rem,90px)] pr-10">
+              Meet the Coaches
+              <br />
+              Behind Your <span className="text-accent">Transformation</span>
+            </h1>
+            <p className="text-muted text-lg max-w-xl leading-relaxed">
+              Our certified trainers bring a combined 50+ years of expertise to
+              guide your fitness journey with passion and precision at Apex Fitness.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="py-24 bg-bg">
         <div className="container grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {team.map((t) => (
-            <div key={t.name} className="card flex flex-col gap-4">
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center text-4xl"
-                style={{
-                  background: "rgba(17,24,39,0.8)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
-              >
-                {t.emoji}
+          {team.map((t, i) => (
+            <ScrollReveal key={t.name} delay={i * 0.1}>
+              <div className="card flex flex-col gap-4 h-full">
+                <div
+                  className="w-20 h-20 rounded-full flex items-center justify-center text-4xl"
+                  style={{
+                    background: "rgba(17,24,39,0.8)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  {t.emoji}
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">{t.name}</h3>
+                  <p className="text-xs font-semibold text-accent">{t.role}</p>
+                </div>
+                <p className="text-muted text-sm leading-relaxed flex-1">
+                  {t.bio}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="tag">{t.exp}</span>
+                  <span className="tag">{t.spec.split(",")[0].trim()}</span>
+                </div>
               </div>
-              <div>
-                <h3 className="font-extrabold text-lg mb-1">{t.name}</h3>
-                <p className="text-xs font-semibold text-accent">{t.role}</p>
-              </div>
-              <p className="text-muted text-sm leading-relaxed flex-1">
-                {t.bio}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="tag">{t.exp}</span>
-                <span className="tag">{t.spec.split(",")[0].trim()}</span>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
@@ -113,16 +118,18 @@ export default function Team() {
         }}
       >
         <div className="container">
-          <h2 className="section-title">
-            Passionate About <span className="text-accent">Fitness?</span>
-          </h2>
-          <p className="section-subtitle mx-auto mb-10">
-            We're always looking for certified fitness professionals to join our
-            growing team.
-          </p>
-          <Link to="/contact" className="btn-primary">
-            Join Our Team <ArrowRight size={16} />
-          </Link>
+          <ScrollReveal>
+            <h2 className="section-title">
+              Passionate About <span className="text-accent">Fitness?</span>
+            </h2>
+            <p className="section-subtitle mx-auto mb-10">
+              We're always looking for certified fitness professionals to join our
+              growing team at Apex Fitness.
+            </p>
+            <Link to="/contact" className="btn-primary">
+              Join Our Team <ArrowRight size={16} />
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
     </div>

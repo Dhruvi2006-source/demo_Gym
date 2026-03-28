@@ -171,3 +171,54 @@
     z-index: 0;
   }
 }
+
+/* ── MOBILE RESPONSIVENESS FIXES (< 380px) ── */
+@media (max-width: 380px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .section-title {
+    font-size: clamp(32px, 10vw, 44px);
+    letter-spacing: 0.02em;
+  }
+
+  .section-eyebrow {
+    letter-spacing: 2px;
+    font-size: 10px;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .btn-primary, .btn-outline {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: 12px;
+  }
+
+  /* Specific section fixes */
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Prevent text overflow */
+  h1, h2, h3, p, span {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Ensure minimum width support for 320px */
+@media (min-width: 320px) and (max-width: 350px) {
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+  }
+}
