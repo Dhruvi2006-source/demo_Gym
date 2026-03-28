@@ -40,10 +40,11 @@ export default function Blog() {
   return (
     <div>
       <section className="pt-40 pb-20 bg-page-hero relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(212,255,0,0.07)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 70%)' }} />
         <div className="container relative">
           <span className="section-eyebrow">Fitness Blog</span>
-          <h1 className="font-display font-black uppercase leading-none mb-4 text-5xl md:text-7xl">
+          <h1 className="font-display uppercase leading-[0.95] mb-5 text-5xl md:text-7xl">
             Insights for Your<br /><span className="text-accent">Fitness Journey</span>
           </h1>
           <p className="text-muted text-lg max-w-xl leading-relaxed">
@@ -60,12 +61,13 @@ export default function Blog() {
                 <span className="text-5xl leading-none">{p.emoji}</span>
                 <div className="flex items-center gap-3">
                   <span className="tag">{p.tag}</span>
-                  <span className="flex items-center gap-1 text-xs text-dim"><Clock size={11} />{p.time}</span>
+                  <span className="flex items-center gap-1.5 text-xs text-dim"><Clock size={11} />{p.time}</span>
                 </div>
               </div>
-              <h2 className="text-2xl font-black leading-snug">{p.title}</h2>
+              <h2 className="text-2xl font-extrabold leading-snug">{p.title}</h2>
               <p className="text-muted leading-relaxed">{p.excerpt}</p>
-              <ul className="flex flex-col gap-3 p-6 bg-bg-3 rounded-xl border-l-4 border-accent">
+              <ul className="flex flex-col gap-3 p-6 rounded-xl"
+                style={{ background: 'rgba(17,24,39,0.6)', borderLeft: '4px solid #00f0ff' }}>
                 {p.content.map((c, i) => (
                   <li key={i} className="text-sm text-muted leading-relaxed">{c}</li>
                 ))}
@@ -76,10 +78,10 @@ export default function Blog() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-20 bg-bg-2 text-center">
+      <section className="py-20 text-center" style={{ background: 'linear-gradient(180deg, #0a0e18 0%, #06080d 100%)' }}>
         <div className="container">
           <h2 className="section-title">Stay <span className="text-accent">Informed</span></h2>
-          <p className="section-subtitle mx-auto mb-9">Get weekly fitness tips, workout guides, and nutrition advice delivered to your inbox.</p>
+          <p className="section-subtitle mx-auto mb-10">Get weekly fitness tips, workout guides, and nutrition advice delivered to your inbox.</p>
           <div className="flex gap-3 max-w-md mx-auto">
             <input type="email" placeholder="your@email.com" className="flex-1 rounded-full border-white/[0.08]" />
             <button className="btn-primary">Subscribe</button>

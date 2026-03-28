@@ -21,11 +21,14 @@ export default function About() {
     <div>
       {/* Hero */}
       <section className="pt-40 pb-20 bg-page-hero relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(212,255,0,0.07)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(124,58,255,0.04) 0%, transparent 70%)' }} />
         <div className="container relative">
           <span className="section-eyebrow">Our Story</span>
-          <h1 className="font-display font-black uppercase leading-none mb-4 text-5xl md:text-7xl">
-            More Than a Gym.<br />A <span className="text-accent">Movement.</span>
+          <h1 className="font-display uppercase leading-[0.95] mb-5 text-5xl md:text-7xl">
+            More Than a Gym.<br />A <span className="text-gradient">Movement.</span>
           </h1>
           <p className="text-muted text-lg max-w-xl leading-relaxed">
             Founded in Anand, Gujarat, Optimum Fitness has been transforming lives for over a decade through expert coaching, cutting-edge facilities, and an unbeatable community culture.
@@ -47,15 +50,18 @@ export default function About() {
             </p>
             <Link to="/contact" className="btn-primary">Start Your Journey <ArrowRight size={16} /></Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-5">
             {[
               { num: '10+', label: 'Years of Excellence' },
               { num: '5000+', label: 'Happy Members' },
               { num: '2', label: 'Locations' },
               { num: '50+', label: 'Expert Trainers' },
             ].map(s => (
-              <div key={s.label} className="card text-center py-10">
-                <span className="font-display font-black text-5xl text-accent block leading-none mb-2">{s.num}</span>
+              <div key={s.label} className="card text-center py-11">
+                <span className="font-display text-5xl block leading-none mb-2"
+                  style={{ background: 'linear-gradient(135deg, #00f0ff, #7c3aff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  {s.num}
+                </span>
                 <span className="text-muted text-xs uppercase tracking-widest">{s.label}</span>
               </div>
             ))}
@@ -64,14 +70,15 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-bg-2">
+      <section className="py-24" style={{ background: 'linear-gradient(180deg, #0a0e18 0%, #06080d 100%)' }}>
         <div className="container">
           <span className="section-eyebrow">Why Optimum Fitness</span>
-          <h2 className="section-title mb-12">Our Core <span className="text-accent">Values</span></h2>
+          <h2 className="section-title mb-14">Our Core <span className="text-accent">Values</span></h2>
           <div className="grid md:grid-cols-2 gap-5">
             {values.map(({ Icon, title, desc }) => (
               <div key={title} className="card flex items-start gap-5">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-accent flex-shrink-0"
+                  style={{ background: 'rgba(0,240,255,0.08)', border: '1px solid rgba(0,240,255,0.15)' }}>
                   <Icon size={22} />
                 </div>
                 <div>
@@ -88,10 +95,11 @@ export default function About() {
       <section className="py-24 bg-bg">
         <div className="container">
           <span className="section-eyebrow">Our History</span>
-          <h2 className="section-title mb-14">Our <span className="text-accent">Journey</span></h2>
+          <h2 className="section-title mb-16">Our <span className="text-accent">Journey</span></h2>
           <div className="relative">
             {/* Center line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/[0.08] -translate-x-px hidden md:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-px hidden md:block"
+              style={{ background: 'linear-gradient(180deg, rgba(0,240,255,0.2), rgba(124,58,255,0.1), transparent)' }} />
             <div className="flex flex-col gap-10">
               {milestones.map((m, i) => (
                 <div key={m.year} className={`flex items-center gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
@@ -101,23 +109,30 @@ export default function About() {
                         <p className="text-muted text-sm">{m.event}</p>
                       </div>
                     ) : (
-                      <span className="font-display font-black text-2xl text-accent hidden md:block">{m.year}</span>
+                      <span className="font-display text-2xl hidden md:block"
+                        style={{ background: 'linear-gradient(135deg, #00f0ff, #7c3aff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        {m.year}
+                      </span>
                     )}
                   </div>
                   {/* Dot */}
-                  <div className="hidden md:flex w-4 h-4 rounded-full bg-accent border-4 border-bg flex-shrink-0 shadow-[0_0_0_3px_#d4ff00]" />
+                  <div className="hidden md:flex w-4 h-4 rounded-full flex-shrink-0"
+                    style={{ background: '#00f0ff', border: '4px solid #06080d', boxShadow: '0 0 0 2px #00f0ff, 0 0 15px rgba(0,240,255,0.4)' }} />
                   <div className="flex-1 md:pl-10">
                     {i % 2 !== 0 ? (
                       <div className="card max-w-xs">
                         <p className="text-muted text-sm">{m.event}</p>
                       </div>
                     ) : (
-                      <span className="font-display font-black text-2xl text-accent hidden md:block">{m.year}</span>
+                      <span className="font-display text-2xl hidden md:block"
+                        style={{ background: 'linear-gradient(135deg, #00f0ff, #7c3aff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        {m.year}
+                      </span>
                     )}
                   </div>
                   {/* Mobile: show both */}
                   <div className="md:hidden flex items-start gap-4 w-full">
-                    <span className="font-display font-black text-xl text-accent w-14 flex-shrink-0">{m.year}</span>
+                    <span className="font-display text-xl text-accent w-14 flex-shrink-0">{m.year}</span>
                     <div className="card flex-1"><p className="text-muted text-sm">{m.event}</p></div>
                   </div>
                 </div>
@@ -128,10 +143,10 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-bg-2 text-center">
+      <section className="py-20 text-center" style={{ background: 'linear-gradient(180deg, #0a0e18 0%, #06080d 100%)' }}>
         <div className="container">
           <h2 className="section-title">Ready to Write Your <span className="text-accent">Success Story?</span></h2>
-          <p className="section-subtitle mx-auto mb-9">Join thousands of members who have transformed their lives at Optimum Fitness.</p>
+          <p className="section-subtitle mx-auto mb-10">Join thousands of members who have transformed their lives at Optimum Fitness.</p>
           <Link to="/contact" className="btn-primary">Get Started Today <ArrowRight size={16} /></Link>
         </div>
       </section>

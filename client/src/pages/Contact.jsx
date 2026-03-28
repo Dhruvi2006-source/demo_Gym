@@ -18,10 +18,11 @@ export default function Contact() {
   return (
     <div>
       <section className="pt-40 pb-20 bg-page-hero relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(212,255,0,0.07)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none"
+          style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 70%)' }} />
         <div className="container relative">
           <span className="section-eyebrow">Get In Touch</span>
-          <h1 className="font-display font-black uppercase leading-none mb-4 text-5xl md:text-7xl">
+          <h1 className="font-display uppercase leading-[0.95] mb-5 text-5xl md:text-7xl">
             Start Your Fitness<br /><span className="text-accent">Journey Today</span>
           </h1>
           <p className="text-muted text-lg max-w-xl leading-relaxed">
@@ -38,7 +39,8 @@ export default function Contact() {
             <div className="flex flex-col gap-4 mb-8">
               {contactInfo.map(({ Icon, title, lines }) => (
                 <div key={title} className="card flex items-start gap-4 p-5">
-                  <div className="w-11 h-11 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent flex-shrink-0">
+                  <div className="w-11 h-11 rounded-full flex items-center justify-center text-accent flex-shrink-0"
+                    style={{ background: 'rgba(0,240,255,0.06)', border: '1px solid rgba(0,240,255,0.12)' }}>
                     <Icon size={18} />
                   </div>
                   <div>
@@ -49,7 +51,8 @@ export default function Contact() {
               ))}
             </div>
             {/* Map placeholder */}
-            <div className="rounded-xl border border-white/[0.08] h-44 bg-surface flex flex-col items-center justify-center gap-3 text-muted">
+            <div className="rounded-2xl h-44 flex flex-col items-center justify-center gap-3 text-muted"
+              style={{ background: 'rgba(17,24,39,0.55)', border: '1px solid rgba(255,255,255,0.07)', backdropFilter: 'blur(12px)' }}>
               <MapPin size={28} className="text-accent" />
               <p className="text-sm">Anand & Nadiad, Gujarat</p>
               <a href="https://maps.google.com" target="_blank" rel="noreferrer"
@@ -61,10 +64,11 @@ export default function Contact() {
           <div className="card p-10">
             {sent ? (
               <div className="text-center py-10">
-                <div className="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
+                  style={{ background: 'rgba(0,240,255,0.08)', border: '1px solid rgba(0,240,255,0.2)', boxShadow: '0 0 30px rgba(0,240,255,0.1)' }}>
                   <CheckCircle size={32} className="text-accent" />
                 </div>
-                <h3 className="text-2xl font-black mb-3">Message Sent!</h3>
+                <h3 className="text-2xl font-extrabold mb-3">Message Sent!</h3>
                 <p className="text-muted text-sm max-w-xs mx-auto leading-relaxed">
                   Thank you! Our team will be in touch within 24 hours to schedule your free trial.
                 </p>
@@ -72,7 +76,7 @@ export default function Contact() {
               </div>
             ) : (
               <>
-                <h2 className="text-2xl font-black mb-2">Book a <span className="text-accent">Free Trial</span></h2>
+                <h2 className="text-2xl font-extrabold mb-2">Book a <span className="text-accent">Free Trial</span></h2>
                 <p className="text-muted text-sm mb-8">Fill in your details and our team will contact you within 24 hours.</p>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-0">
                   <div className="grid sm:grid-cols-2 gap-4">
